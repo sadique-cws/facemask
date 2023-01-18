@@ -9,9 +9,37 @@ function alert($msg){
     echo "<script>alert('$msg')</script>";
 }
 
+
+
 session_start();
 
+function checkAuth($page){
+    if(!isset($_SESSION['user'])){
+        redirect($page);
+    }
+    return null;
+}
 
+function getUser(){
+    global $connect;
+    if(isset($_SESSION['user'])){
+        $sessionData = $_SESSION['user'];
+        $query = mysqli_query($connect, "select * from accounts where email='$sessionData' OR contact='$sessionData'");
+        $row = mysqli_fetch_array($query);
+        return $row;
+    }
+    return null;
+}
+
+$user = (is_array(getUser()))? getUser(): ["gender" => null];
+
+if(!isset($user['dp'])):
+    $url = ($user['gender'] == "f")? "02.jpg" : "07.jpg";
+    $url = "https://social.webestica.com/assets/images/avatar/" . $url;
+else:
+    $url = "./images/dp/" . $user['dp'];
+endif;
+          
 // login & register work
 
 if(isset($_POST['create'])){

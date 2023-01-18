@@ -1,5 +1,5 @@
 
-<nav class="bg-blue-600 text-white border-blue-900 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+<nav class="bg-white text-black border-blue-900 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 shadow-lg">
   <div class="container flex flex-wrap items-center justify-between mx-auto">
     <a href="index.php" class="flex items-center">
         <img src="https://toppng.com/uploads/preview/anonymous-freetoedit-anonymous-hacker-mask-11562984731flvabwesfh.png" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
@@ -10,14 +10,22 @@
       <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
     </button>
     <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 items-center">
-        <li>
-          <a href="singlelogin.php" class="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:p-0 dark:text-white" aria-current="page">Login</a>
-        </li>
-        <li>
-          <a href="login.php" class="block text-white bg-blue-700 px-2 py-1  hover:bg-blue-900 rounded ">Create an Account    </a>
-        </li>
+      <ul class="flex md:space-x-5 items-center">
        
+        <li>
+          <a href="#" class="block text-black">Profile</a>
+        </li>
+        <li>
+          <a href="#" class="block text-black">Setting</a>
+        </li>
+        <li class="flex items-center gap-2">
+          <a href="#" class="block text-black"><?= $user['fname'];?> </a>
+        
+          <img src="<?= $url;?>" alt="" class="w-8 h-8 rounded-full">
+        </li>
+        <li>
+          <a href="logout.php" class="block text-black">Logout</a>
+        </li>
       </ul>
     </div>
   </div>
