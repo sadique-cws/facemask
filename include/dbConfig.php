@@ -88,4 +88,26 @@ if(isset($_POST['login'])){
     }
 
 }
+
+// post insert work
+
+if(isset($_POST['create_post'])){
+    $post_caption = $_POST['post_caption'];
+    $post_by = $user['id'];
+    // image work;
+
+    $post_image = $_FILES['post_image']['name'];
+    $post_tmp = $_FILES['post_image']['tmp_name'];
+
+    move_uploaded_file($post_tmp, "../images/post/$post_image");
+
+    $query = mysqli_query($connect, "insert into posts (caption, post_by, image) value('$post_caption','$post_by','$post_image')");
+    if($query){
+        redirect("../index.php");
+    }
+    else{
+        alert("post not send");
+        redirect("../index.php");
+    }
+}
 ?>
