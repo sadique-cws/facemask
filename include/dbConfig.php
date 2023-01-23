@@ -6,6 +6,7 @@ function redirect($page="index.php"){
     echo "<script>window.open('$page','_self')</script>";
 }
 function alert($msg){
+
     echo "<script>alert('$msg')</script>";
 }
 
@@ -32,12 +33,13 @@ function getUser(){
 }
 
 $user = (is_array(getUser()))? getUser(): ["gender" => null];
+$Authuser = (is_array(getUser()))? getUser(): ["gender" => null];
 
 if(!isset($user['dp'])):
-    $url = ($user['gender'] == "f")? "02.jpg" : "07.jpg";
-    $url = "https://social.webestica.com/assets/images/avatar/" . $url;
+    $url = ($user['gender'] == "f")? "female_default_dp.png" : "male_default_dp.jpg";
+    $user['dp'] = "./images/" . $url;
 else:
-    $url = "./images/dp/" . $user['dp'];
+    $user['dp'] = "./images/dp/" . $user['dp'];
 endif;
           
 // login & register work

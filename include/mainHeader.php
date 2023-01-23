@@ -19,9 +19,9 @@
           <a href="#" class="block text-black">Setting</a>
         </li>
         <li class="flex items-center gap-2">
-          <a href="#" class="block text-black"><?= $user['fname'];?> </a>
+          <a href="#" class="block text-black"><?= $Authuser['fname'];?> </a>
         
-          <img src="<?= $url;?>" alt="" class="w-8 h-8 rounded-full">
+          <img src="images/dp/<?= $Authuser['dp'];?>" alt="" class="w-8 h-8 rounded-full">
         </li>
         <li>
           <a href="logout.php" class="block text-black">Logout</a>
